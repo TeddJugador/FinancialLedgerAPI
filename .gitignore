@@ -1,0 +1,13 @@
+# AWS credentials — never commit these
+*accessKeys*.csv
+*.pem
+.aws/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# CDK
+cdk.out/
