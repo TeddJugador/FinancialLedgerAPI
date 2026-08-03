@@ -25,7 +25,7 @@ that larger system later, not just as an isolated demo.
 3. It checks whether this exact payment was already processed before (so a
    retried webhook can't charge someone twice).
 4. It updates both account balances *and* writes a permanent record of the
-   transaction — all in a single atomic operation, so it's impossible to end
+   transaction all in a single atomic operation, so it's impossible to end
    up in a state where money left one account but never arrived at the
    other.
 5. In the background, every completed transaction is also copied into a
@@ -154,11 +154,11 @@ account or deployment is needed to verify the logic.
 ## Notes for anyone picking this up later
 
 - The database and archive bucket are set to never be deleted automatically,
-  even if the infrastructure is torn down — this is intentional, so a bad
+  even if the infrastructure is torn down. This is intentional, so a bad
   deploy can't wipe financial records by accident. Delete them by hand if
   you're cleaning up a throwaway test environment.
 - The archive/report-generation piece relies on AWS's official pandas/Arrow
-  layer rather than a custom-built one — building it from scratch runs into
+  layer rather than a custom-built one. Building it from scratch runs into
   Lambda's size limits for that combination of libraries.
 - If you deploy somewhere other than `us-east-1`, a couple of ARNs in
   `stacks/ledger_stack.py` reference region-specific AWS resources and will
