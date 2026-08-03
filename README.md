@@ -1,5 +1,6 @@
 # Financial Ledger API
 *by Theodore Masi*
+
 A small, serverless payment ledger built on AWS. It listens for payment
 webhooks, verifies they're authentic, records the transaction safely (no
 double-charging, no partial writes), and keeps a permanent audit trail of
